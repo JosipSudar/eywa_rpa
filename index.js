@@ -70,10 +70,13 @@ const mainFunction = async () => {
   await driver.sleep(5000);
 
   //job title
-  const titleInput = await driver.findElement(
-    By.xpath(
-      "//input[@id='single-typeahead-entity-form-component-profileEditFormElement-POSITION-profilePosition-ACoAAC54cEYB1MvLzdUJU1pIG2bkmNgbuGpDxq4-1-title']"
-    )
+  const titleInput = await driver.wait(
+    until.elementLocated(
+      By.xpath(
+        "//input[@id='single-typeahead-entity-form-component-profileEditFormElement-POSITION-profilePosition-ACoAAC54cEYB1MvLzdUJU1pIG2bkmNgbuGpDxq4-1-title']"
+      )
+    ),
+    5000
   );
   await titleInput.sendKeys(title, Key.ENTER);
   await titleInput.sendKeys(Key.ENTER);
@@ -171,16 +174,16 @@ const mainFunction = async () => {
     By.className("jobs-search-results__list-item")
   );
   let jobs = [];
-  for (let jobElement of jobElements) {
-    let titleElement = await jobElement.findElement(
+  for (const jobElement of jobElements) {
+    const titleElement = await jobElement.findElement(
       By.className("job-card-search__title")
     );
-    let companyElement = await jobElement.findElement(
-      By.className("job-card-search__company-name")
+    let descriptionElement = await jobElement.findElement(
+      By.className("job-card-search__snippet")
     );
-    let title = await titleElement.getText();
-    let company = await companyElement.getText();
-    jobs.push({ title: title, company: company });
+    const title = await titleElement.getText();
+    const desc = await descriptionElement.getText();
+    jobs.push({ title: title, description: desc });
   }
   fs.writeFileSync("jobs.json", JSON.stringify(jobs, null, 2));
 
