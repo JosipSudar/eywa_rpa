@@ -11,3 +11,6 @@ Wait timed out after 5012ms
 Signed in successfully
 NoSuchElementError: no such element: Unable to locate element: {"method":"xpath","selector":"//input[@id='single-typeahead-entity-form-component-profileEditFormElement-POSITION-profilePosition-ACoAAC54cEYB1MvLzdUJU1pIG2bkmNgbuGpDxq4-1-title']"}
   (Session info: chrome=124.0.6367.63)
+20:6:59: Signed in successfully
+20:7:10: NoSuchElementError: no such element: Unable to locate element: {"method":"xpath","selector":"//button[@id='ember16']"}
+  (Session info: chrome=124.0.6367.63)

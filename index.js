@@ -138,7 +138,7 @@ const mainFunction = async () => {
   await driver.sleep(5000);
 
   //jobs
-  driver
+  await driver
     .findElement(By.xpath("//*[@id='global-nav']/div/nav/ul/li[3]/a"))
     .click()
     .then(logger("Jobs button clicked successfully"));
@@ -213,11 +213,22 @@ const mainFunction = async () => {
   await driver.sleep(5000);
 
   //message body
-  //TODO: bypass premium message
+  const messageInput = await driver.findElement(By.xpath("//p"));
+  await messageInput.sendKeys(
+    "Hi,\n My name is Robert Robotić and this is test message."
+  );
+  await driver
+    .findElement(By.xpath("//button[@type='submit']"))
+    .click()
+    .then(logger("Message sent successfully"));
 };
 
 const logger = (text) => {
-  fs.writeFileSync("./application.log", text + "\n", { flag: "a" });
+  const date = new Date();
+  const time = `${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
+  fs.writeFileSync("./application.log", time + ": " + text + "\n", {
+    flag: "a",
+  });
 };
 
 const linkedIn_Worker = async () => {
