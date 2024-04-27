@@ -1,0 +1,13 @@
+Error: ECONNREFUSED connect ECONNREFUSED 127.0.0.1:4444
+Signed in successfully
+NoSuchElementError: no such element: Unable to locate element: {"method":"xpath","selector":"//button[@class='artdeco-dropdown__trigger artdeco-dropdown__trigger--placement-bottom ember-view']"}
+  (Session info: chrome=124.0.6367.63)
+Signed in successfully
+NoSuchElementError: no such element: Unable to locate element: {"method":"xpath","selector":"//button[@class='artdeco-dropdown__trigger artdeco-dropdown__trigger--placement-bottom ember-view']"}
+  (Session info: chrome=124.0.6367.63)
+Signed in successfully
+TimeoutError: Waiting for element to be located By(xpath, //div[@class='artdeco-dropdown__content-inner']//button[text()='View Profile'])
+Wait timed out after 5012ms
+Signed in successfully
+NoSuchElementError: no such element: Unable to locate element: {"method":"xpath","selector":"//input[@id='single-typeahead-entity-form-component-profileEditFormElement-POSITION-profilePosition-ACoAAC54cEYB1MvLzdUJU1pIG2bkmNgbuGpDxq4-1-title']"}
+  (Session info: chrome=124.0.6367.63)

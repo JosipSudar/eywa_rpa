@@ -36,20 +36,14 @@ const mainFunction = async () => {
   await driver.sleep(5000);
 
   //Me button click
-  await driver
-    .findElement(
-      By.xpath(
-        "//button[@class='artdeco-dropdown__trigger artdeco-dropdown__trigger--placement-bottom ember-view']"
-      )
-    )
-    .click();
+  await driver.findElement(By.xpath("//button[@id='ember16']")).click();
 
   //Me dropdown
   await driver
     .wait(
       until.elementLocated(
         By.xpath(
-          "//div[@class='artdeco-dropdown__content-inner']//button[text()='View Profile']"
+          "//div[@class='artdeco-dropdown__content-inner']//a[text()='View Profile']"
         )
       ),
       5000
