@@ -14,3 +14,88 @@ NoSuchElementError: no such element: Unable to locate element: {"method":"xpath"
 20:6:59: Signed in successfully
 20:7:10: NoSuchElementError: no such element: Unable to locate element: {"method":"xpath","selector":"//button[@id='ember16']"}
   (Session info: chrome=124.0.6367.63)
+9:18:45: Signed in successfully
+9:18:56: NoSuchElementError: no such element: Unable to locate element: {"method":"xpath","selector":"/html/body/div[5]/header/div/nav/ul/li[6]/div/button"}
+  (Session info: chrome=124.0.6367.63)
+9:21:39: Signed in successfully
+9:21:50: NoSuchElementError: no such element: Unable to locate element: {"method":"xpath","selector":"//div[@class='artdeco-dropdown__trigger artdeco-dropdown__trigger--placement-bottom ember-view']//button"}
+  (Session info: chrome=124.0.6367.63)
+11:39:18: Signed in successfully
+11:39:29: NoSuchElementError: no such element: Unable to locate element: {"method":"xpath","selector":"//button[text()='Me']"}
+  (Session info: chrome=124.0.6367.63)
+11:40:1: Signed in successfully
+11:42:18: Signed in successfully
+11:47:47: Signed in successfully
+11:48:14: TimeoutError: Waiting for element to be located By(xpath, //input[@id='single-typeahead-entity-form-component-profileEditFormElement-POSITION-profilePosition-ACoAAC54cEYB1MvLzdUJU1pIG2bkmNgbuGpDxq4-1-title'])
+Wait timed out after 5067ms
+11:49:17: Signed in successfully
+11:49:39: TimeoutError: Waiting for element to be located By(xpath, //input[@id='single-typeahead-entity-form-component-profileEditFormElement-POSITION-profilePosition-ACoAAC54cEYB1MvLzdUJU1pIG2bkmNgbuGpDxq4-1-title'])
+Wait timed out after 5167ms
+11:53:0: Signed in successfully
+11:53:27: TimeoutError: Waiting for element to be located By(xpath, //div[@class='artdeco-dropdown__content-inner']//button[text()='Add experience'])
+Wait timed out after 10095ms
+11:53:54: Signed in successfully
+11:54:21: TimeoutError: Waiting for element to be located By(xpath, //div[@class='artdeco-dropdown__content-inner']//a[text()='Add experience'])
+Wait timed out after 10063ms
+12:11:30: Signed in successfully
+12:11:54: TimeoutError: Waiting for element to be located By(xpath, //div[@class='artdeco-dropdown__content-inner']//a[text()='Add experience'])
+Wait timed out after 5181ms
+12:16:39: Signed in successfully
+12:16:57: ReferenceError: scrollTo is not defined
+12:33:32: Signed in successfully
+12:33:55: TimeoutError: Waiting for element to be located By(xpath, //div[@id='ember291']//a[text()='Add experience'])
+Wait timed out after 5022ms
+12:35:32: Signed in successfully
+12:35:54: NoSuchElementError: no such element: Unable to locate element: {"method":"xpath","selector":"//div[@id='ember291']//a[text()='Add experience']"}
+  (Session info: chrome=124.0.6367.63)
+12:40:13: Signed in successfully
+12:40:35: NoSuchElementError: no such element: Unable to locate element: {"method":"xpath","selector":"//div[@id='ember291']//button[text()='Add experience']"}
+  (Session info: chrome=124.0.6367.63)
+12:44:57: Signed in successfully
+12:45:19: NoSuchElementError: no such element: Unable to locate element: {"method":"xpath","selector":"//div[@class='artdeco-dropdown__content-inner']//a[text()='Add position']"}
+  (Session info: chrome=124.0.6367.63)
+12:46:20: Signed in successfully
+12:46:43: NoSuchElementError: no such element: Unable to locate element: {"method":"xpath","selector":"//div[@class='artdeco-dropdown__content-inner']//a[text()='Add position']"}
+  (Session info: chrome=124.0.6367.63)
+12:47:29: Signed in successfully
+12:47:51: NoSuchElementError: no such element: Unable to locate element: {"method":"xpath","selector":"//div[@class='artdeco-dropdown__content-inner']//button[text()='Add position']"}
+  (Session info: chrome=124.0.6367.63)
+12:48:39: Signed in successfully
+12:49:1: NoSuchElementError: no such element: Unable to locate element: {"method":"xpath","selector":"//div[@id='ember291']//button[text()='Add position']"}
+  (Session info: chrome=124.0.6367.63)
+13:6:8: Signed in successfully
+13:6:24: NoSuchElementError: no such element: Unable to locate element: {"method":"xpath","selector":"//button[text()='Add profile section']"}
+  (Session info: chrome=124.0.6367.63)
+13:7:1: Signed in successfully
+13:7:18: NoSuchElementError: no such element: Unable to locate element: {"method":"xpath","selector":"//button[@id='ember265']"}
+  (Session info: chrome=124.0.6367.63)
+13:8:7: Signed in successfully
+13:8:24: NoSuchElementError: no such element: Unable to locate element: {"method":"xpath","selector":"/html/body/div[5]/div[3]/div/div/div[2]/div/div/main/section[1]/div[2]/div[3]/button"}
+  (Session info: chrome=124.0.6367.63)
+13:9:30: NoSuchElementError: no such element: Unable to locate element: {"method":"xpath","selector":"//*[@id="session_key"]"}
+  (Session info: chrome=124.0.6367.63)
+15:49:33: Signed in successfully
+15:49:45: NoSuchElementError: no such element: Unable to locate element: {"method":"xpath","selector":"/html/body/div[5]/div[3]/div/div/div[2]/div/div/main/section[1]/div[2]/div[3]/button"}
+  (Session info: chrome=124.0.6367.63)
+15:51:16: Signed in successfully
+15:51:36: Profile saved successfully
+15:51:36: NoSuchElementError: no such element: Unable to locate element: {"method":"xpath","selector":"//button[text()='Save']"}
+  (Session info: chrome=124.0.6367.63)
+15:54:5: Signed in successfully
+15:54:31: Profile saved successfully
+15:54:31: NoSuchElementError: no such element: Unable to locate element: {"method":"xpath","selector":"//button[@id='ember436']"}
+  (Session info: chrome=124.0.6367.63)
+16:2:36: Signed in successfully
+16:3:2: Profile saved successfully
+16:3:7: Jobs button clicked successfully
+16:3:8: ElementClickInterceptedError: element click intercepted: Element <a class="app-aware-link  
+         global-nav__primary-link" target="_self" href="https://www.linkedin.com/jobs/?" data-test-app-aware-link="">...</a> is not clickable at point (845, 26). Other element would receive the click: <div data-test-modal-container="" aria-hidden="false" id="ember556" class="artdeco-modal-overlay artdeco-modal-overlay--layer-default artdeco-modal-overlay--is-top-layer  ember-view">...</div>
+  (Session info: chrome=124.0.6367.63)
+16:13:11: Signed in successfully
+16:13:36: Profile saved successfully
+16:13:47: Jobs button clicked successfully
+16:13:52: NoSuchElementError: no such element: Unable to locate element: {"method":"xpath","selector":"/html/body/div[5]/header/div/div/div/div[2]/div[2]/div/div/input[1]"}
+  (Session info: chrome=124.0.6367.63)
+16:23:40: Signed in successfully
+16:24:1: ElementClickInterceptedError: element click intercepted: Element <select id="text-entity-list-form-component-profileEditFormElement-POSITION-profilePosition-ACoAAC54cEYB1MvLzdUJU1pIG2bkmNgbuGpDxq4-1-employmentStatus" aria-describedby="text-entity-list-form-component-profileEditFormElement-POSITION-profilePosition-ACoAAC54cEYB1MvLzdUJU1pIG2bkmNgbuGpDxq4-1-employmentStatus-error" aria-required="false" data-test-text-entity-list-form-select="">...</select> is not clickable at point (759, 358). Other element would receive the click: <div class="search-typeahead-v2__hit search-typeahead-v2__hit--autocomplete" data-test-single-typeahead-entity-form-search-result="true">...</div>
+  (Session info: chrome=124.0.6367.63)

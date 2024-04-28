@@ -36,7 +36,7 @@ const mainFunction = async () => {
   await driver.sleep(5000);
 
   //Me button click
-  await driver.findElement(By.xpath("//button[@id='ember16']")).click();
+  await driver.findElement(By.xpath("//button[@id='ember17']")).click();
 
   //Me dropdown
   await driver
@@ -52,22 +52,23 @@ const mainFunction = async () => {
 
   await driver.sleep(5000);
 
-  //profile
+  //profile section
   await driver
-    .findElement(By.xpath("//button[@id='overflow-Add-new-experience']"))
+    .findElement(
+      By.xpath(
+        "/html/body/div[6]/div[3]/div/div/div[2]/div/div/main/section[1]/div[2]/div[3]/button"
+      )
+    )
     .click();
 
-  //experience modal
-  await driver.wait(
-    until.elementLocated(
-      By.xpath(
-        "//div[@class='artdeco-dropdown__content-inner']//button[text()='Add Position']"
-      )
-    ),
-    5000
-  ).click;
+  //profile section dropdown
+  await driver
+    .findElement(
+      By.xpath("/html/body/div[3]/div/div/div[2]/div[1]/div/div[2]/div[4]/a")
+    )
+    .click();
 
-  await driver.sleep(5000);
+  await driver.sleep(3000);
 
   //job title
   const titleInput = await driver.wait(
@@ -124,7 +125,10 @@ const mainFunction = async () => {
 
   //save
   await driver
-    .findElement(By.xpath("//button[text()='Save']"))
+    .wait(
+      until.elementLocated(By.xpath("/html/body/div[3]/div/div/div[3]/button")),
+      5000
+    )
     .click()
     .then(logger("Profile saved successfully"));
 
@@ -152,7 +156,7 @@ const mainFunction = async () => {
     )
   );
   await searchInput.sendKeys("Software Developer Intern", Key.RETURN);
-  const countryInput = driver.findElement(
+  const countryInput = await driver.findElement(
     By.xpath(
       "/html/body/div[5]/header/div/div/div/div[2]/div[3]/div/div/input[1]"
     )
@@ -169,23 +173,51 @@ const mainFunction = async () => {
 
   await driver.sleep(5000);
 
-  //search results
-  const jobElements = await driver.findElements(
-    By.className("jobs-search-results__list-item")
-  );
-  let jobs = [];
-  for (const jobElement of jobElements) {
-    const titleElement = await jobElement.findElement(
-      By.className("job-card-search__title")
+  //search results to json
+  let nextPage = true;
+  while (nextPage) {
+    const jobList = await driver.findElement(
+      By.xpath(
+        "/html/body/div[6]/div[3]/div[4]/div/div/main/div/div[2]/div[1]/div/ul"
+      )
     );
-    let descriptionElement = await jobElement.findElement(
-      By.className("job-card-search__snippet")
+    let jobs = [];
+    for (const job of jobList) {
+      const listItems = await job.findElements(By.xpath("./li"));
+      for (const listItem of listItems) {
+        await listItem.click();
+        await driver.sleep(2000);
+        const jobData = await driver.findElements(
+          By.xpath(
+            "/html/body/div[6]/div[3]/div[4]/div/div/main/div/div[2]/div[2]/div/div[2]/div/div[1]/div"
+          )
+        );
+        for (const data of jobData) {
+          const titleData = await data.findElement(
+            By.xpath(
+              "/html/body/div[6]/div[3]/div[4]/div/div/main/div/div[2]/div[2]/div/div[2]/div/div[1]/div/div[1]/div/div[1]/div[1]/div[1]/h1/a/span"
+            )
+          );
+          const descData = await data.findElement(By.className("mt4"));
+          const title = await titleData.getText();
+          const description = await descData.getText();
+          jobs.push({ title: title, description: description });
+        }
+      }
+    }
+    fs.writeFileSync("jobs.json", JSON.stringify(jobs, null, 2));
+    const nextBtn = await driver.findElements(
+      By.xpath(
+        "/html/body/div[6]/div[3]/div[4]/div/div/main/div/div[2]/div[1]/div/div[4]/button"
+      )
     );
-    const title = await titleElement.getText();
-    const desc = await descriptionElement.getText();
-    jobs.push({ title: title, description: desc });
+    if (nextBtn.length > 0) {
+      await nextBtn[0].click();
+      await driver.sleep(2000);
+    } else {
+      nextPage = false;
+    }
   }
-  fs.writeFileSync("jobs.json", JSON.stringify(jobs, null, 2));
 
   await driver.sleep(5000);
 
@@ -208,7 +240,7 @@ const mainFunction = async () => {
   const recipientInput = await driver.findElement(
     By.xpath("//input[@id='ember2303-search-field']")
   );
-  await recipientInput.sendKeys("Ino Stiv", Key.RETURN);
+  await recipientInput.sendKeys("Test User", Key.RETURN);
 
   await driver.sleep(5000);
 
