@@ -36,7 +36,7 @@ const mainFunction = async () => {
   await driver.sleep(5000);
 
   //Me button click
-  await driver.findElement(By.xpath("//button[@id='ember17']")).click();
+  await driver.findElement(By.xpath("//button[@id='ember16']")).click();
 
   //Me dropdown
   await driver
@@ -81,6 +81,8 @@ const mainFunction = async () => {
   );
   await titleInput.sendKeys(title, Key.ENTER);
   await titleInput.sendKeys(Key.ENTER);
+
+  await driver.sleep(2000);
 
   //employment
   const employmentSelect = await driver.findElement(
@@ -152,70 +154,58 @@ const mainFunction = async () => {
   //job search
   const searchInput = await driver.findElement(
     By.xpath(
-      "/html/body/div[5]/header/div/div/div/div[2]/div[2]/div/div/input[1]"
+      "/html/body/div[6]/header/div/div/div/div[2]/div[2]/div/div/input[1]"
     )
   );
   await searchInput.sendKeys("Software Developer Intern", Key.RETURN);
-  const countryInput = await driver.findElement(
-    By.xpath(
-      "/html/body/div[5]/header/div/div/div/div[2]/div[3]/div/div/input[1]"
-    )
-  );
-  await countryInput.sendKeys("Croatia", Key.RETURN);
-
-  await driver.sleep(5000);
-
-  //search
-  driver
-    .findElement(By.xpath("//button[text()='Search']"))
-    .click()
-    .then(logger("Search button clicked successfully"));
 
   await driver.sleep(5000);
 
   //search results to json
-  let nextPage = true;
-  while (nextPage) {
-    const jobList = await driver.findElement(
+  let nextPageExists = true;
+  while (nextPageExists) {
+    const listOfJobs = await driver.findElements(
       By.xpath(
         "/html/body/div[6]/div[3]/div[4]/div/div/main/div/div[2]/div[1]/div/ul"
       )
     );
     let jobs = [];
-    for (const job of jobList) {
+    for (const job of listOfJobs) {
       const listItems = await job.findElements(By.xpath("./li"));
       for (const listItem of listItems) {
         await listItem.click();
         await driver.sleep(2000);
-        const jobData = await driver.findElements(
+        const jobElements = await driver.findElements(
           By.xpath(
             "/html/body/div[6]/div[3]/div[4]/div/div/main/div/div[2]/div[2]/div/div[2]/div/div[1]/div"
           )
         );
-        for (const data of jobData) {
-          const titleData = await data.findElement(
+        for (const element of jobElements) {
+          const titleElement = await element.findElement(
             By.xpath(
               "/html/body/div[6]/div[3]/div[4]/div/div/main/div/div[2]/div[2]/div/div[2]/div/div[1]/div/div[1]/div/div[1]/div[1]/div[1]/h1/a/span"
             )
           );
-          const descData = await data.findElement(By.className("mt4"));
-          const title = await titleData.getText();
-          const description = await descData.getText();
-          jobs.push({ title: title, description: description });
+          let descriptionElement = await element.findElement(
+            By.className("mt4")
+          );
+          const title = await titleElement.getText();
+          const desc = await descriptionElement.getText();
+          jobs.push({ title: title, description: desc });
         }
       }
     }
     fs.writeFileSync("jobs.json", JSON.stringify(jobs, null, 2));
-    const nextBtn = await driver.findElements(
+    const nextBtns = await driver.findElements(
       By.xpath(
         "/html/body/div[6]/div[3]/div[4]/div/div/main/div/div[2]/div[1]/div/div[4]/button"
       )
     );
-    if (nextBtn.length > 0) {
-      await nextBtn[0].click();
+    if (nextBtns.length > 0) {
+      await nextBtns[0].click();
       await driver.sleep(2000);
     } else {
-      nextPage = false;
+      nextPageExists = false;
     }
   }
 

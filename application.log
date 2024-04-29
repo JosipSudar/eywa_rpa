@@ -99,3 +99,39 @@ Wait timed out after 5022ms
 16:23:40: Signed in successfully
 16:24:1: ElementClickInterceptedError: element click intercepted: Element <select id="text-entity-list-form-component-profileEditFormElement-POSITION-profilePosition-ACoAAC54cEYB1MvLzdUJU1pIG2bkmNgbuGpDxq4-1-employmentStatus" aria-describedby="text-entity-list-form-component-profileEditFormElement-POSITION-profilePosition-ACoAAC54cEYB1MvLzdUJU1pIG2bkmNgbuGpDxq4-1-employmentStatus-error" aria-required="false" data-test-text-entity-list-form-select="">...</select> is not clickable at point (759, 358). Other element would receive the click: <div class="search-typeahead-v2__hit search-typeahead-v2__hit--autocomplete" data-test-single-typeahead-entity-form-search-result="true">...</div>
   (Session info: chrome=124.0.6367.63)
+16:49:28: Signed in successfully
+16:49:51: Profile saved successfully
+16:49:56: Jobs button clicked successfully
+16:49:57: ElementClickInterceptedError: element click intercepted: Element <a class="app-aware-link  
+         global-nav__primary-link" target="_self" href="https://www.linkedin.com/jobs/?" data-test-app-aware-link="">...</a> is not clickable at point (845, 26). Other element would receive the click: <div data-test-modal-container="" aria-hidden="false" id="ember468" class="artdeco-modal-overlay artdeco-modal-overlay--layer-default artdeco-modal-overlay--is-top-layer  ember-view">...</div>
+  (Session info: chrome=124.0.6367.63)
+16:58:11: Signed in successfully
+16:58:17: NoSuchWindowError: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=124.0.6367.63)
+11:25:29: Signed in successfully
+11:25:40: NoSuchElementError: no such element: Unable to locate element: {"method":"xpath","selector":"//button[@id='ember17']"}
+  (Session info: chrome=124.0.6367.63)
+11:26:31: Signed in successfully
+11:26:54: Profile saved successfully
+11:27:4: Jobs button clicked successfully
+11:27:10: NoSuchElementError: no such element: Unable to locate element: {"method":"xpath","selector":"/html/body/div[5]/header/div/div/div/div[2]/div[2]/div/div/input[1]"}
+  (Session info: chrome=124.0.6367.63)
+11:42:58: Signed in successfully
+11:43:20: ElementClickInterceptedError: element click intercepted: Element <select id="text-entity-list-form-component-profileEditFormElement-POSITION-profilePosition-ACoAAC54cEYB1MvLzdUJU1pIG2bkmNgbuGpDxq4-1-employmentStatus" aria-describedby="text-entity-list-form-component-profileEditFormElement-POSITION-profilePosition-ACoAAC54cEYB1MvLzdUJU1pIG2bkmNgbuGpDxq4-1-employmentStatus-error" aria-required="false" data-test-text-entity-list-form-select="">...</select> is not clickable at point (759, 358). Other element would receive the click: <div class="search-typeahead-v2__hit search-typeahead-v2__hit--autocomplete" data-test-single-typeahead-entity-form-search-result="true">...</div>
+  (Session info: chrome=124.0.6367.63)
+11:43:57: Signed in successfully
+11:44:22: Profile saved successfully
+11:44:32: Jobs button clicked successfully
+11:44:38: NoSuchElementError: no such element: Unable to locate element: {"method":"xpath","selector":"/html/body/div[5]/header/div/div/div/div[2]/div[2]/div/div/input[1]"}
+  (Session info: chrome=124.0.6367.63)
+11:48:47: Signed in successfully
+11:49:12: Profile saved successfully
+11:49:22: Jobs button clicked successfully
+11:49:33: TypeError: jobList is not iterable
+11:54:28: Signed in successfully
+11:54:53: Profile saved successfully
+11:55:4: Jobs button clicked successfully
+11:56:19: Set job alert button clicked successfully
+11:56:19: ElementNotInteractableError: element not interactable
+  (Session info: chrome=124.0.6367.63)
