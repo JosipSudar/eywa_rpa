@@ -135,3 +135,16 @@ from unknown error: web view not found
 11:56:19: Set job alert button clicked successfully
 11:56:19: ElementNotInteractableError: element not interactable
   (Session info: chrome=124.0.6367.63)
+17:8:39: Signed in successfully
+17:8:49: NoSuchElementError: no such element: Unable to locate element: {"method":"xpath","selector":"/html/body/div[4]/header/div/nav/ul/li[4]/a"}
+  (Session info: chrome=124.0.6367.63)
+17:9:42: Signed in successfully
+17:10:2: NoSuchElementError: no such element: Unable to locate element: {"method":"xpath","selector":"/html/body/div[6]/div[3]/div[2]/div/div/main/div/div[2]/div[2]/div[1]/div/div[3]/div[1]/div/section/div/input"}
+  (Session info: chrome=124.0.6367.63)
+17:13:11: Signed in successfully
+17:13:42: NoSuchElementError: no such element: Unable to locate element: {"method":"xpath","selector":"/html/body/div[6]/div[3]/div[2]/div/div/main/div/div[2]/div[2]/div[1]/div/div[3]/form/div[3]/div/div[1]/div[1]/p"}
+  (Session info: chrome=124.0.6367.63)
+17:15:42: Signed in successfully
+17:16:13: Message sent successfully
+17:18:5: Signed in successfully
+17:18:37: Message sent successfully

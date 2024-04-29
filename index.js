@@ -17,7 +17,7 @@ const config = async () => {
   await driver.get(url);
 };
 
-const mainFunction = async () => {
+const workerFunction = async () => {
   //login
   const emailInput = await driver.findElement(
     By.xpath('//*[@id="session_key"]')
@@ -162,52 +162,36 @@ const mainFunction = async () => {
   await driver.sleep(5000);
 
   //search results to json
-  let nextPageExists = true;
-  while (nextPageExists) {
-    const listOfJobs = await driver.findElements(
-      By.xpath(
-        "/html/body/div[6]/div[3]/div[4]/div/div/main/div/div[2]/div[1]/div/ul"
-      )
-    );
-    let jobs = [];
-    for (const job of listOfJobs) {
-      const listItems = await job.findElements(By.xpath("./li"));
-      for (const listItem of listItems) {
-        await listItem.click();
-        await driver.sleep(2000);
-        const jobElements = await driver.findElements(
+  const listOfJobs = await driver.findElements(
+    By.xpath(
+      "/html/body/div[6]/div[3]/div[4]/div/div/main/div/div[2]/div[1]/div/ul"
+    )
+  );
+  let jobs = [];
+  for (const job of listOfJobs) {
+    const listItems = await job.findElements(By.xpath("./li"));
+    for (const listItem of listItems) {
+      await listItem.click();
+      await driver.sleep(2000);
+      const jobElements = await driver.findElements(
+        By.xpath(
+          "/html/body/div[6]/div[3]/div[4]/div/div/main/div/div[2]/div[2]/div/div[2]/div/div[1]/div"
+        )
+      );
+      for (const element of jobElements) {
+        const titleElement = await element.findElement(
           By.xpath(
-            "/html/body/div[6]/div[3]/div[4]/div/div/main/div/div[2]/div[2]/div/div[2]/div/div[1]/div"
+            "/html/body/div[6]/div[3]/div[4]/div/div/main/div/div[2]/div[2]/div/div[2]/div/div[1]/div/div[1]/div/div[1]/div[1]/div[1]/h1/a/span"
           )
         );
-        for (const element of jobElements) {
-          const titleElement = await element.findElement(
-            By.xpath(
-              "/html/body/div[6]/div[3]/div[4]/div/div/main/div/div[2]/div[2]/div/div[2]/div/div[1]/div/div[1]/div/div[1]/div[1]/div[1]/h1/a/span"
-            )
-          );
-          let descriptionElement = await element.findElement(
-            By.className("mt4")
-          );
-          const title = await titleElement.getText();
-          const desc = await descriptionElement.getText();
-          jobs.push({ title: title, description: desc });
-        }
+        let descriptionElement = await element.findElement(By.className("mt4"));
+        const title = await titleElement.getText();
+        const desc = await descriptionElement.getText();
+        jobs.push({ title: title, description: desc });
       }
     }
-    fs.writeFileSync("jobs.json", JSON.stringify(jobs, null, 2));
-    const nextBtns = await driver.findElements(
-      By.xpath(
-        "/html/body/div[6]/div[3]/div[4]/div/div/main/div/div[2]/div[1]/div/div[4]/button"
-      )
-    );
-    if (nextBtns.length > 0) {
-      await nextBtns[0].click();
-      await driver.sleep(2000);
-    } else {
-      nextPageExists = false;
-    }
   }
+  fs.writeFileSync("jobs.json", JSON.stringify(jobs, null, 2));
 
   await driver.sleep(5000);
 
@@ -221,24 +205,35 @@ const mainFunction = async () => {
 
   //message
   await driver
-    .findElement(By.xpath("/html/body/div[4]/header/div/nav/ul/li[4]/a"))
+    .findElement(By.xpath("/html/body/div[6]/header/div/nav/ul/li[4]/a"))
     .click();
 
   await driver.sleep(5000);
 
   //message recipient
   const recipientInput = await driver.findElement(
-    By.xpath("//input[@id='ember2303-search-field']")
+    By.xpath(
+      "/html/body/div[6]/div[3]/div[2]/div/div/main/div/div[2]/div[2]/div[1]/div/div[3]/div[1]/div/section/div/input"
+    )
   );
-  await recipientInput.sendKeys("Test User", Key.RETURN);
+  await recipientInput.sendKeys("Matija Bilić");
+  await driver.sleep(5000);
+  await recipientInput.sendKeys(Key.RETURN);
 
   await driver.sleep(5000);
 
   //message body
-  const messageInput = await driver.findElement(By.xpath("//p"));
+  const messageInput = await driver.findElement(
+    By.xpath(
+      "/html/body/div[6]/div[3]/div[2]/div/div/main/div/div[2]/div[2]/div[1]/div/div[3]/form/div[3]/div/div[1]/div[1]/p"
+    )
+  );
   await messageInput.sendKeys(
     "Hi,\n My name is Robert Robotić and this is test message."
   );
+
+  await driver.sleep(2000);
+
   await driver
     .findElement(By.xpath("//button[@type='submit']"))
     .click()
@@ -256,12 +251,11 @@ const logger = (text) => {
 const linkedIn_Worker = async () => {
   try {
     await config();
-    await mainFunction();
+    await workerFunction();
   } catch (error) {
     logger(error);
   } finally {
     await driver.quit();
   }
 };
-
 linkedIn_Worker();
