@@ -148,3 +148,15 @@ from unknown error: web view not found
 17:16:13: Message sent successfully
 17:18:5: Signed in successfully
 17:18:37: Message sent successfully
+10:3:22: Signed in successfully
+10:3:32: NoSuchElementError: no such element: Unable to locate element: {"method":"xpath","selector":"//button[@id='ember16']"}
+  (Session info: chrome=124.0.6367.119)
+10:4:43: Signed in successfully
+10:5:5: NoSuchWindowError: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=124.0.6367.119)
+18:46:8: Signed in successfully
+18:46:32: Profile saved successfully
+18:46:43: Jobs button clicked successfully
+18:46:56: NoSuchElementError: no such element: Unable to locate element: {"method":"xpath","selector":"/html/body/div[6]/div[3]/div[4]/div/div/main/div/div[2]/div[2]/div/div[2]/div/div[1]/div/div[1]/div/div[1]/div[1]/div[1]/h1/a/span"}
+  (Session info: chrome=124.0.6367.119)

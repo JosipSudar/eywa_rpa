@@ -36,7 +36,7 @@ const workerFunction = async () => {
   await driver.sleep(5000);
 
   //Me button click
-  await driver.findElement(By.xpath("//button[@id='ember16']")).click();
+  await driver.findElement(By.xpath("//span[text()='Me']")).click();
 
   //Me dropdown
   await driver
@@ -197,7 +197,7 @@ const workerFunction = async () => {
 
   //set job alert
   await driver
-    .findElement(By.xpath("//input[@type='checkbox']"))
+    .wait(until.elementLocated(By.xpath("//input[@type='checkbox']")), 5000)
     .click()
     .then(logger("Set job alert button clicked successfully"));
 
